@@ -49,6 +49,7 @@ public class ShoppingCartTests {
 
     @Test
     public void canCalculateTotalPrice(){
+        cart.addTwoForOneSet(Goods.POTATO);
         cart.addGood(Goods.BREAD);
         cart.addGood(Goods.MUSTARD);
         cart.addGood(Goods.POTATO);
@@ -69,6 +70,7 @@ public class ShoppingCartTests {
 
     @Test
     public void canCalculatePriceWithLoyaltyCard(){
+        cart.addTwoForOneSet(Goods.POTATO);
         cart.addGood(Goods.CHEESE);
         cart.addGood(Goods.CHEESE);
         cart.addGood(Goods.CHEESE);

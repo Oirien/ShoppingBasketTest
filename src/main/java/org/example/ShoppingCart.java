@@ -2,12 +2,27 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class ShoppingCart {
     private ArrayList<Goods> contents;
+    private HashSet<Goods> twoForOneSet;
 
     public ShoppingCart() {
         this.contents = new ArrayList<>();
+        this.twoForOneSet = new HashSet<>();
+    }
+
+    public HashSet<Goods> getTwoForOneSet() {
+        return twoForOneSet;
+    }
+
+    public void setTwoForOneSet(HashSet<Goods> twoForOneSet) {
+        this.twoForOneSet = twoForOneSet;
+    }
+
+    public void addTwoForOneSet(Goods good){
+        this.twoForOneSet.add(good);
     }
 
     public ArrayList<Goods> getContents() {
@@ -38,8 +53,8 @@ public class ShoppingCart {
             totalContents.put(good, totalContents.getOrDefault(good, 0) + 1);
         }
         for (Goods good : totalContents.keySet()){
-            if (good == Goods.POTATO){
-                Integer twoForOne = (int) Math.ceil(totalContents.get(Goods.POTATO)/2);
+            if (twoForOneSet.contains(good)){
+                Integer twoForOne = (int) Math.ceil(totalContents.get(good)/2);
                 totalContents.replace(good, twoForOne);
             }
             Integer goodCount = totalContents.get(good);
