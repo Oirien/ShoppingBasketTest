@@ -23,20 +23,20 @@ public class ShoppingCartTests {
 
     @Test
     public void basketStartsEmpty(){
-        assertEquals(2, cart.getContents().size());
+        assertEquals(0, cart.getContents().size());
     }
 
     @Test
     public void canAddItemToBasket(){
         cart.addGood(Goods.POTATO);
-        assertEquals(5, cart.getContents().size());
+        assertEquals(1, cart.getContents().size());
     }
 
     @Test
     public void canRemoveItemFromBasket(){
         cart.addGood(Goods.POTATO);
         cart.removeGood(Goods.POTATO);
-        assertEquals(5, cart.getContents().size());
+        assertEquals(0, cart.getContents().size());
     }
 
     @Test
@@ -44,7 +44,25 @@ public class ShoppingCartTests {
         cart.addGood(Goods.POTATO);
         cart.addGood(Goods.CHEESE);
         cart.emptyContents();
-        assertEquals(2, cart.getContents().size());
+        assertEquals(0, cart.getContents().size());
+    }
+
+    @Test
+    public void canCalculateTotalPrice(){
+        cart.addGood(Goods.BREAD);
+        cart.addGood(Goods.MUSTARD);
+        cart.addGood(Goods.POTATO);
+        cart.addGood(Goods.CHEESE);
+        cart.addGood(Goods.CHEESE);
+        cart.addGood(Goods.CHEESE);
+        cart.addGood(Goods.POTATO);
+        cart.addGood(Goods.POTATO);
+        cart.addGood(Goods.POTATO);
+        cart.addGood(Goods.BREAD);
+        cart.addGood(Goods.BREAD);
+        cart.addGood(Goods.BREAD);
+
+        assertEquals(19.1, cart.calculatePrice(), 0.0);
     }
 
 }
