@@ -38,6 +38,10 @@ public class ShoppingCart {
             totalContents.put(good, totalContents.getOrDefault(good, 0) + 1);
         }
         for (Goods good : totalContents.keySet()){
+            if (good == Goods.POTATO){
+                Integer twoForOne = (int) Math.ceil(totalContents.get(Goods.POTATO)/2);
+                totalContents.replace(good, twoForOne);
+            }
             Integer goodCount = totalContents.get(good);
             Double goodValue = good.price;
             price += goodCount * goodValue;

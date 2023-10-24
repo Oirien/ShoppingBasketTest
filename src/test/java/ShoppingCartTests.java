@@ -62,7 +62,7 @@ public class ShoppingCartTests {
         cart.addGood(Goods.BREAD);
         cart.addGood(Goods.BREAD);
 
-        assertEquals(19.1, cart.calculatePrice(), 0.0);
+        assertEquals(17.8, cart.calculatePrice(), 0.0);
     }
 
 }
