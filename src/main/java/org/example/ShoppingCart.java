@@ -30,7 +30,7 @@ public class ShoppingCart {
         this.contents.clear();
     }
 
-    public double calculatePrice() {
+    public double calculatePrice(Boolean loyaltyCard) {
         double price = 0;
         HashMap<Goods, Integer> totalContents = new HashMap<Goods, Integer>();
         for (Goods good : contents
@@ -46,6 +46,13 @@ public class ShoppingCart {
             Double goodValue = good.price;
             price += goodCount * goodValue;
         }
-        return price;
+        if (price > 20.00){
+            price = price * 0.90;
+        }
+        if (loyaltyCard == true){
+            price = price * 0.98;
+        }
+        double roundedPrice = Math.round(price * 100.0)/100.0;
+        return roundedPrice;
     }
 }

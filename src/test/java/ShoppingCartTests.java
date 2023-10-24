@@ -61,8 +61,27 @@ public class ShoppingCartTests {
         cart.addGood(Goods.BREAD);
         cart.addGood(Goods.BREAD);
         cart.addGood(Goods.BREAD);
+        cart.addGood(Goods.HAM);
+        cart.addGood(Goods.CAVIAR);
 
-        assertEquals(17.8, cart.calculatePrice(), 0.0);
+        assertEquals(36.27, cart.calculatePrice(false), 0.0);
+    }
+
+    @Test
+    public void canCalculatePriceWithLoyaltyCard(){
+        cart.addGood(Goods.CHEESE);
+        cart.addGood(Goods.CHEESE);
+        cart.addGood(Goods.CHEESE);
+        cart.addGood(Goods.POTATO);
+        cart.addGood(Goods.POTATO);
+        cart.addGood(Goods.POTATO);
+        cart.addGood(Goods.BREAD);
+        cart.addGood(Goods.BREAD);
+        cart.addGood(Goods.BREAD);
+        cart.addGood(Goods.HAM);
+        cart.addGood(Goods.CAVIAR);
+
+        assertEquals(32.33, cart.calculatePrice(true), 0.0);
     }
 
 }

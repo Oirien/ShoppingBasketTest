@@ -5,7 +5,8 @@ public enum Goods {
     HAM("ham", 2.50),
     BREAD("bread", 1.25),
     MUSTARD("mustard", 1.75),
-    POTATO("potato", .65);
+    POTATO("potato", .65),
+    CAVIAR("caviar", 20.00);
 
     String goodName;
     Double price;
